@@ -148,15 +148,15 @@ void analyze(Inputs&& input_paths, stdf::path output_path, std::string_view grap
 
 int main()
 {	
-	stdf::path base_path = "";
+	stdf::path base_path = "data";
 	auto no_weight = stdv::iota(5, 12) | stdv::transform([&](int i) { return base_path / std::format("no_weight_40_{}0.txt", i);});
 	auto weight = stdv::iota(5, 12) | stdv::transform([&](int i) { return base_path / std::format("weight_40_{}0.txt", i);});
 	
 	try
 	{
-		analyze(no_weight, base_path / "no_weight.png", "Slitta Scarica");
+		analyze(no_weight, "no_weight.png", "Slitta Scarica");
 		std::print("\n\n\n\n");
-		analyze(weight, base_path / "weight.png", "Slitta Carica");
+		analyze(weight, "weight.png", "Slitta Carica");
 	}
 	catch (std::exception const& e)
 	{
